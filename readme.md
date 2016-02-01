@@ -29,8 +29,15 @@ class TextInput extends BindingComponent {
 }
 ```
 
-In the above example, we are able to use `this.bindStateValue` to access to the binded state and
-will have the following `props` in the component `TextInput`:
+In the above example, the super class `BindingComponent` has the following members:
+
+- `this.onChange`: the handler will update state, usually you pass this function to `onChange` event
+  of form widgets.
+- `this.bindStateValue`: this is a getter and setter.
+  - getter: access to the binding state.
+  - setter: update value to the binding state.
+
+And we will have the following `props` in the component `TextInput`:
 
 - `bindStateCtx`: the context of state that you expect to bind on, usually `this`.
 - `bindStateType`: the `Function` to convert the value to the corresponding type, like `String`,
