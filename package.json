@@ -2,10 +2,9 @@
   "name": "react-binding-component",
   "version": "1.0.0",
   "description": "react component for data-binding",
-  "main": "dist/react-binding-component.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "./node_modules/.bin/webpack -p",
-    "build-src": "./node_modules/.bin/webpack",
+    "build": "./node_modules/.bin/babel index.js --out-dir dist",
     "prepublish": "npm run build"
   },
   "repository": {
