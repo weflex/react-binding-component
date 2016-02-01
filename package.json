@@ -1,0 +1,24 @@
+{
+  "name": "react-binding-component",
+  "version": "1.0.0",
+  "description": "react component for data-binding",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/weflex/react-binding-component.git"
+  },
+  "keywords": [
+    "data-binding",
+    "react",
+    "react-component"
+  ],
+  "author": "Yorkie Liu <yorkiefixer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weflex/react-binding-component/issues"
+  },
+  "homepage": "https://github.com/weflex/react-binding-component#readme"
+}
