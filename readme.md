@@ -93,9 +93,9 @@ MIT @ WeFlex, Inc.
 [rsamec/react-binding]: https://github.com/rsamec/react-binding
 [npm-image]: https://img.shields.io/npm/v/react-binding-component.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/react-binding-component
-[travis-image]: https://img.shields.io/travis/weflex/react-binding-component.js.svg?style=flat-square
-[travis-url]: https://travis-ci.org/weflex/react-binding-component.js
-[david-image]: http://img.shields.io/david/weflex/react-binding-component.js.svg?style=flat-square
-[david-url]: https://david-dm.org/weflex/react-binding-component.js
+[travis-image]: https://img.shields.io/travis/weflex/react-binding-component.svg?style=flat-square
+[travis-url]: https://travis-ci.org/weflex/react-binding-component
+[david-image]: http://img.shields.io/david/weflex/react-binding-component.svg?style=flat-square
+[david-url]: https://david-dm.org/weflex/react-binding-component
 [downloads-image]: http://img.shields.io/npm/dm/react-binding-component.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/react-binding-component
