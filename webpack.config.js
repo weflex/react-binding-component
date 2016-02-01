@@ -10,7 +10,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'gian.js',
+    filename: 'react-binding-component.js',
     libraryTarget: 'commonjs2'
   },
   resolve: {
