@@ -6,7 +6,7 @@ const webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: [
-    path.join(__dirname, 'lib/react-binding-component.js'),
+    path.join(__dirname, 'index.js'),
   ],
   output: {
     path: path.join(__dirname, 'dist'),
