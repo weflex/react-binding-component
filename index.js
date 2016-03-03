@@ -18,6 +18,9 @@ class BindingComponent extends React.Component {
   set bindStateValue(val) {
     if (typeof this.props.bindStateType === 'function') {
       val = this.props.bindStateType(val);
+      if (this.props.bindStateType === Number && isNaN(val)) {
+        val = 0;
+      }
     }
     const names = this.props.bindStateName.split('.');
     if (names.length === 1) {
