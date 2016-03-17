@@ -3,18 +3,23 @@
 const React = require('react');
 
 /**
- * BindingComponent
+ * @class BindingComponent
  */
 class BindingComponent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+
+  /**
+   * @getter bindStateValue
+   */
   get bindStateValue() {
     return this.props.bindStateName.split('.')
     .reduce((ctx, name) => {
       return ctx && ctx[name];
-    }, this.props.bindStateCtx);
+    }, this.props.bindStateCtx && this.props.bindStateCtx.state);
   }
+
+  /**
+   * @getter bindStateValue
+   */
   set bindStateValue(val) {
     if (typeof this.props.bindStateType === 'function') {
       val = this.props.bindStateType(val);
@@ -43,6 +48,10 @@ class BindingComponent extends React.Component {
       });
     }
   }
+
+  /**
+   * @event onChange
+   */
   onChange(event) {
     this.bindStateValue = event.target.value;
   }
