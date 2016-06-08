@@ -22,9 +22,12 @@ class BindingComponent extends React.Component {
    */
   set bindStateValue(val) {
     if (typeof this.props.bindStateType === 'function') {
-      val = this.props.bindStateType(val);
       if (this.props.bindStateType === Number && isNaN(val)) {
         val = 0;
+      } else if (this.props.bindStateType === Boolean && typeof val === 'string') {
+        val = (val === 'true') ? true : false;
+      } else {
+        val = this.props.bindStateType(val);
       }
     }
     const names = this.props.bindStateName.split('.');
