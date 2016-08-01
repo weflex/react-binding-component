@@ -1,5 +1,6 @@
 "use strict";
 
+const assign = require('deep-assign');
 const React = require('react');
 
 /**
@@ -11,10 +12,22 @@ class BindingComponent extends React.Component {
    * @getter bindStateValue
    */
   get bindStateValue() {
-    return this.props.bindStateName.split('.')
-    .reduce((ctx, name) => {
-      return ctx && ctx[name];
-    }, this.props.bindStateCtx && this.props.bindStateCtx.state);
+    let path;
+    let pathIndex = 0;
+    let state;
+    try {
+      path = this.props.bindStateName.split('.');
+      state = this.props.bindStateCtx.state;
+      do {
+        let subpath = path[pathIndex];
+        state = state[subpath];
+        pathIndex++;
+      } while (pathIndex < path.length);
+    } catch (error) {
+      return null;
+    } finally {
+      return state;
+    }
   }
 
   /**
@@ -30,26 +43,29 @@ class BindingComponent extends React.Component {
         val = this.props.bindStateType(val);
       }
     }
-    const names = this.props.bindStateName.split('.');
-    if (names.length === 1) {
-      this.props.bindStateCtx.setState({
-        [names[0]]: val
-      });
-    } else {
-      const newState = this.props.bindStateCtx.state[names[0]];
-      const subnames = names.slice(1);
-      subnames.reduce((curr, name, index) => {
-        if (index === subnames.length - 1) {
-          curr[name] = val;
-        } else {
-          curr = curr[name];
-        }
-        return curr;
-      }, newState);
-      this.props.bindStateCtx.setState({
-        [names[0]]: newState
-      });
-    }
+
+    this.props.bindStateCtx.setState((prevState, currentProps) => {
+      let path;
+      let pathReversed;
+      let overlay = val;
+      let pathIndex = 0;
+      try {
+        path = currentProps.bindStateName.split('.');
+        pathReversed = path.reverse();
+      } catch (error) {
+        return prevState;
+      }
+      do {
+        let subpath = pathReversed[pathIndex];
+        overlay = { [subpath]: overlay };
+        pathIndex++;
+      } while (pathIndex < pathReversed.length);
+      const nextState = assign({}, prevState, overlay);
+      const entry = path[0];
+      return {
+        [entry]: nextState[entry]
+      };
+    });
   }
 
   /**

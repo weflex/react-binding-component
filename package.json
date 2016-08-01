@@ -35,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/weflex/react-binding-component/issues"
   },
-  "homepage": "https://github.com/weflex/react-binding-component#readme"
+  "homepage": "https://github.com/weflex/react-binding-component#readme",
+  "dependencies": {
+    "deep-assign": "2.0.0"
+  }
 }
